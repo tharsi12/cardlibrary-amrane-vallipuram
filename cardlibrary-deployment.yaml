@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cardlibrary-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cardlibrary
+  template:
+    metadata:
+      labels:
+        app: cardlibrary
+    spec:
+      serviceAccountName: cardlibrary-sa
+      containers:
+        - name: cardlibrary
+          image: tharsi12/cardlibrary:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/cardlibrary
+            - name: SPRING_DATASOURCE_USERNAME
+              value: postgres
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: postgres
+      restartPolicy: Always
+
+
