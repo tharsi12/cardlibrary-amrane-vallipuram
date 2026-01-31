@@ -1,20 +1,59 @@
-# 🃏 Card Library Project - Architecture DevOps
+# Card Library Project - Architecture DevOps
 
 Ce projet consiste en une application de gestion de cartes de collection et de membres, conçue selon une architecture microservices (Modular Monolith) et déployée sur un cluster Kubernetes.
 
-**Binôme :** Amrane & Vallipuram  
+**Binôme :** Tachfine AMRANE & Tharsikan VALLIPURAM  
 **Dépôt Docker Hub :** [hub.docker.com/r/tharsi12/cardlibrary](https://hub.docker.com/r/tharsi12/cardlibrary)
 
 ---
 
-## 🏗️ Architecture du Système
+## Architecture du Système
 
-L'application est structurée pour démontrer les principes fondamentaux du DevOps : conteneurisation, orchestration, persistance et sécurité des accès.
-
-
+├── cardlibrabry_amrane_vallipuram/
+│   	├── src/       
+│   		├── main/
+│   			├── java/
+│   				├── data/
+│   					├── Card.java
+│   					├── CardRepository.java
+│   					├── Member.java
+│   					├── MemberRepository.java
+│   				├── exception/
+│   					├── CardNotFoundException.java
+│   					├── MemberNotFoundException.java
+│   				├── service/
+│   					├── CardClientService.java
+│   					├── CardService.java
+│   					├── MemberService.java
+│   				├── web/
+│   					├── CardWebService.java
+│   					├── MemberWebService.java
+│   				└── CardLibraryApplication.java
+│   			├── ressources/
+│   				├── application.properties
+│   		├── test/   
+│   			├── CardlibraryAmraneVallipuramApplicationTests.java
+│   			├── CardServiceTest.java
+│   			├── CardWebServiceTest.java
+│   			├── MemberServiceTest.java
+│   			├── MemberWebServiceTest.java
+│	├── target/
+│	├── cardlibrary-deployment.yaml
+│	├── cardlibrary-ingress.yml
+│	├── cardlibrary-service.yaml
+│	├── docker-compose.yml 
+│	├── Dockerfile    
+│	├── mnvw        
+│	├── mnvw.cmd       
+│	├── pom.xml    
+│	├── postgres-config.yaml    
+│	├── postgres-secret.yaml 
+│	├── postgres-storage.yaml   
+│	├── postgres.yaml         
+│	└── README.md
 
 ### Composants :
-* **Gateway (Ingress) :** Point d'entrée unique via l'hôte `myservice.info`.
+* **Gateway (Ingress) :** Point d'entrée unique via l'hôte `cardmarket`.
 * **Application (Spring Boot) :** Gestion des cartes et des membres avec communication interne.
 * **Base de données (PostgreSQL 15) :** Stockage des données métier.
 * **Persistance :** Utilisation de `PersistentVolume` (PV) pour garantir que les données survivent au redémarrage des pods.
@@ -22,7 +61,7 @@ L'application est structurée pour démontrer les principes fondamentaux du DevO
 
 ---
 
-## 🛠️ Stack Technique
+## Stack Technique
 
 * **Backend :** Java 17, Spring Boot, Spring Data JPA.
 * **Database :** PostgreSQL 15.
@@ -31,7 +70,7 @@ L'application est structurée pour démontrer les principes fondamentaux du DevO
 
 ---
 
-## 📦 Installation et Déploiement
+## Installation et Déploiement
 
 ### 1. Prérequis
 * Minikube et Docker Desktop installés.
