@@ -9,7 +9,8 @@ Ce projet consiste en une application de gestion de cartes de collection et de m
 
 ## Architecture du Système
 
-├── cardlibrabry_amrane_vallipuram/
+```text
+├── cardlibrabry_amrane_vallipuram/ 
 │   	├── src/       
 │   		├── main/
 │   			├── java/
@@ -51,6 +52,7 @@ Ce projet consiste en une application de gestion de cartes de collection et de m
 │	├── postgres-storage.yaml   
 │	├── postgres.yaml         
 │	└── README.md
+```
 
 ### Composants :
 * **Gateway (Ingress) :** Point d'entrée unique via l'hôte `cardmarket`.
